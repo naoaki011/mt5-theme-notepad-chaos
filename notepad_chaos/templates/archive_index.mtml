@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard"><mt:Unless regex_replace="/\s*\n+/g","\n">
+<head>
+    <$mt:include module="<__trans phrase="HTMLヘッダー">"$>
+    <title><$MTBlogName encode_html="1"$>: Archives</title>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-index <$MTVar name="page_layout"$>">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="<__trans phrase="バナーヘッダー">"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+                            <h1 id="page-title" class="archive-title">Archives</h1>
+
+<MTArchiveList archive_type="Monthly">
+    <MTArchiveListHeader> 
+                            <div class="archive-monthly archive-date-based archive">
+                                <h2 class="archive-header" style="display:none;">Entries grouped by Monthly</h2>
+                                <ul class="archive-list">
+    </MTArchiveListHeader>
+                                    <li>
+                                       <h3 class="archive-header"><a href="<$MTArchiveLink$>"><$MTArchiveTitle escape="html"$></a></h3>
+                                        <ul>
+    <MTEntries>
+                                            <li class="archive-list-item"><a href="<MTEntryPermalink archive_type="Individual">" title="<$MTEntryExcerpt escape="html"$>"><$MTEntryTitle escape="html"$></a></li>
+    </MTEntries>
+                                        </ul>
+                                    </li>
+    <MTArchiveListFooter>
+                                </ul>
+                            </div>
+    </MTArchiveListFooter>
+</MTArchiveList>
+
+<mt:ignore>
+    <!-- List of monthly archives, if monthly archives are enabled -->
+<MTIfArchiveTypeEnabled archive_type="Monthly">
+                            <div class="archive-monthly archive-date-based archive">
+    <MTArchiveList archive_type="Monthly">
+        <MTArchiveListHeader>
+                                <h2 class="archive-header">Monthly Archives</h2>
+                                <div class="archive-content">
+                                    <ul class="archive-list">
+        </MTArchiveListHeader>
+                                        <li class="archive-list-item"><a href="<$MTArchiveLink$>"><$MTArchiveTitle escape="html"$></a></li>
+        <MTArchiveListFooter>
+                                    </ul>
+                                </div>
+        </MTArchiveListFooter>
+    </MTArchiveList>
+                            </div>
+</MTIfArchiveTypeEnabled>
+</mt:ignore>
+
+<mt:ignore>
+    <!-- List of category archives, if category archives are enabled -->
+<MTIfArchiveTypeEnabled archive_type="Category">
+                            <div class="archive-category archive">
+                                <h2 class="archive-header">Categories</h2>
+                                <div class="archive-content">
+    <MTTopLevelCategories>
+        <MTSubCatIsFirst>
+                                    <ul>
+        </MTSubCatIsFirst>
+        <MTIf tag="CategoryCount">
+                                        <li class="archive-list-item"><a href="<$MTCategoryArchiveLink$>"<MTIf tag="CategoryDescription" strip_linefeeds="1" trim="1"> title="<$MTCategoryDescription escape="html"$>"</MTIf>><$MTCategoryLabel escape="html"$></a>
+        <MTElse>
+                                        <li class="archive-list-item"><$MTCategoryLabel escape="html"$>
+        </MTIf>
+        <MTSubCatsRecurse>
+                                        </li>
+        <MTSubCatIsLast>
+                                    </ul>
+        </MTSubCatIsLast>
+    </MTTopLevelCategories>
+                                </div>
+                            </div>
+</MTIfArchiveTypeEnabled>
+</mt:ignore>
+
+<mt:ignore>
+    <!-- List of author archives, if category author are enabled -->
+   <MTIfArchiveTypeEnabled archive_type="Author">
+                                <div class="archive-author archive">
+        <MTArchiveList archive_type="Author">
+            <MTArchiveListHeader>
+                                    <h2 class="archive-header">Author Archives</h2>
+                                    <div class="archive-content">
+                                        <ul class="archive-list">
+            </MTArchiveListHeader>
+                                            <li class="archive-list-item"><a href="<$MTArchiveLink$>"><$MTArchiveTitle escape="html"$></a></li>
+            <MTArchiveListFooter>
+                                        </ul>
+                                    </div>
+            </MTArchiveListFooter>
+        </MTArchiveList>
+                                </div>
+    </MTIfArchiveTypeEnabled>
+</mt:ignore>
+ 
+<mt:ignore>
+    <!-- List of category archives by month, if category archives are enabled -->
+    <MTIfArchiveTypeEnabled archive_type="Category-Monthly">
+                                <div class="archive-category-monthly archive">
+        <MTArchiveList archive_type="Category-Monthly">
+            <MTArchiveListHeader>
+                                    <h2 class="archive-header">Category Monthly Archives</h2>
+                                    <div class="archive-content">
+                                        <ul class="archive-list">
+            </MTArchiveListHeader>
+                                            <li class="archive-list-item"><a href="<$MTArchiveLink$>"><$MTArchiveTitle escape="html"$></a></li>
+            <MTArchiveListFooter>
+                                        </ul>
+                                    </div>
+            </MTArchiveListFooter>
+        </MTArchiveList>
+                                </div>
+    </MTIfArchiveTypeEnabled>
+</mt:ignore>
+
+<mt:ignore>
+    <!-- List of author archives, if category archives are enabled -->
+    <MTIfArchiveTypeEnabled archive_type="Author-Monthly">
+                                <div class="archive-author-monthly archive">
+        <MTArchiveList archive_type="Author-Monthly">
+            <MTArchiveListHeader>
+                                    <h2 class="archive-header">Author Monthly Archives</h2>
+                                    <div class="archive-content">
+                                        <ul class="archive-list">
+            </MTArchiveListHeader>
+                                            <li class="archive-list-item"><a href="<$MTArchiveLink$>"><$MTArchiveTitle escape="html"$></a></li>
+            <MTArchiveListFooter>
+                                        </ul>
+                                    </div>
+            </MTArchiveListFooter>
+        </MTArchiveList>
+                                </div>
+    </MTIfArchiveTypeEnabled>
+</mt:ignore>
+
+<mt:ignore>
+    <!-- List of entry archives, if entry archives are enabled -->
+<MTIfArchiveTypeEnabled archive_type="Individual">
+                            <div class="archive-individual archive-date-based archive">
+    <MTArchiveList archive_type="Individual">
+        <MTArchiveListHeader>
+                                <div class="archive-content">
+                                    <ul class="archive-list">
+        </MTArchiveListHeader>
+                                        <li class="archive-list-item"><$MTArchiveDate format="%Y.%m.%d"$>: <a href="<$MTArchiveLink$>"><$MTArchiveTitle$></a></li>
+        <MTArchiveListFooter>
+                                    </ul>
+                                </div>
+        </MTArchiveListFooter>
+    </MTArchiveList>
+                            </div>
+</MTIfArchiveTypeEnabled>
+</mt:ignore>
+
+                        </div>
+                    </div>
+                    <$MTInclude module="<__trans phrase="サイドバー">"$>
+                </div>
+            </div>
+            <$mt:include module="<__trans phrase="バナーフッター">"$>
+        </div>
+    </div>
+</body></mt:Unless>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" id="sixapart-standard"><mt:Unless regex_replace="/\s*\n+/g","\n">
+<head>
+    <$mt:include module="<__trans phrase="HTML Head">"$>
+    <title><$MTBlogName escape="html"$>: <$MTArchiveTitle escape="html"$> Archives</title>
+<mt:ignore>
+    <!-- Include Next and Previous links if publishing a date-based archive -->
+</mt:ignore>
+<MTIf name="datebased_archive">
+    <MTArchivePrevious>
+    <link rel="prev" href="<$MTArchiveLink$>" title="<$MTArchiveTitle escape="html"$>" />
+    </MTArchivePrevious>
+    <MTArchiveNext>
+    <link rel="next" href="<$MTArchiveLink$>" title="<$MTArchiveTitle escape="html"$>" />
+    </MTArchiveNext>
+</MTIf>
+</head>
+<body id="<$mt:BlogTemplateSetID$>" class="mt-archive-listing mt-<MTVar name="archive_class"> <$MTVar name="page_layout"$>">
+    <div id="container">
+        <div id="container-inner">
+            <$mt:include module="<__trans phrase="Banner Header">"$>
+            <div id="content">
+                <div id="content-inner">
+                    <div id="alpha">
+                        <div id="alpha-inner">
+<MTIf name="datebased_archive">
+                            <mt:ignore><!-- Title for category-monthly entry listings --></mt:ignore>
+                            <h1 id="page-title" class="archive-title"><$MTArchiveTitle escape="html"$> Archives</h1>
+<MTElse>
+                            <mt:ignore><!-- Title for category entry listings --></mt:ignore>
+                            <h1 id="page-title" class="archive-title">Recently in <em><$MTArchiveTitle escape="html"$></em> Category</h1>
+</MTIf>
+<mt:ignore><!-- Limit number of entries to the number set in Blog Entry Settings --></mt:ignore>
+<MTUnless name="datebased_archive"><$mt:setvar name="limit" value="auto"$></MTUnless>
+<MTEntries limit="$limit">
+                            <mt:ignore><!-- Use the Entry Summary module for each entry published on this page --></mt:ignore>
+                            <$mt:include module="<__trans phrase="Entry Summary">"$>
+</MTEntries>
+                            <div class="content-nav">
+<MTArchivePrevious>
+                                <a href="<$MTArchiveLink$>">&laquo; <$MTArchiveTitle escape="html"$></a> |
+</MTArchivePrevious>
+                                <a href="<$MTLink template="main_index"$>">Main Index</a> |
+                                <a href="<$MTLink template="archive_index"$>">Archives</a>
+<MTArchiveNext>
+                                | <a href="<$MTArchiveLink$>"><$MTArchiveTitle escape="html"$> &raquo;</a>
+</MTArchiveNext>
+                            </div>
+                        </div>
+                    </div>
+                    <$MTInclude module="<__trans phrase="Sidebar">"$>
+                </div>
+            </div>
+            <$mt:include module="<__trans phrase="Banner Footer">"$>
+        </div>
+    </div>
+</body></mt:Unless>
+</html>

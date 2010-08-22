@@ -1,0 +1,50 @@
+            <div id="header">
+
+                <div id="search">
+                    <form method="get" action="<$mt:CGIPath$><$mt:SearchScript$>" id="searchform">
+                        <input type="text" class="txtField" name="search" value="<$mt:SearchString$>" />
+<mt:If name="search_results">
+                        <input type="hidden" name="IncludeBlogs" value="<$mt:SearchIncludeBlogs$>" />
+                        <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
+<mt:else>
+                        <input type="hidden" name="IncludeBlogs" value="<$mt:BlogID$>" />
+                        <input type="hidden" name="limit" value="<MTSearchMaxResults>" />
+</mt:if>
+                        <input type="submit" id="searchsubmit" accesskey="4" class="btnSearch" value="Find It &raquo;" />
+                    </form>
+                </div>
+                <div id="nav">
+                    <div id="nav-inner">
+                        <ul>
+                            <li id="home"><a href="<$MTBlogURL$>">Home</a></li>
+<MTPages folder="About" limit="1">
+                            <li id="about"><a href="<$MTPagePermalink$>">About</a></li>
+<MTElse>
+                            <li id="about">About</li>
+</MTPages>
+<MTIf tag="Link" template="archive_index">
+                            <li id="archives"><a href="<$MTLink template="archive_index"$>">Archives</a></li>
+<MTElse>
+                            <li id="archives">Archives</li>
+</MTIf>
+                        </ul>
+                    </div>
+                </div>
+                <div id="header-inner">
+                    <div id="header-content">
+                        <mt:ignore><!-- Use h1 and h2 html tags on the main index of the blog as the title, use divs on all other pages where there are page titles. --></mt:ignore>
+<MTIf name="main_index">
+                        <h1 id="header-name"><a href="<$MTBlogURL$>" accesskey="1"><$MTBlogName escape="html"$></a></h1>
+    <MTIf tag="BlogDescription" strip_linefeeds="1" trim="1">
+                        <h2 id="header-description"><$MTBlogDescription escape="html"$></h2>
+    </MTIf>
+<MTElse>
+                        <div id="header-name"><a href="<$MTBlogURL$>" accesskey="1"><$MTBlogName escape="html"$></a></div>
+    <MTIf tag="BlogDescription" strip_linefeeds="1" trim="1">
+                        <div id="header-description"><$MTBlogDescription escape="html"$></div>
+    </MTIf>
+</MTIf>
+                    </div>
+                </div>
+
+            </div>

@@ -1,0 +1,107 @@
+                            <mt:Ignore>
+                            <!-- Display Comments for the entry/page or commenting form if entry/page is accepting Comments -->
+                            </mt:Ignore>
+                            <div id="comments" class="comments">
+
+                                <mt:ignore>
+                                <!-- Display Comments -->
+                                </mt:ignore>
+                                <div id="comments-list">
+<MTComments>
+    <MTCommentsHeader>
+                                    <h2 class="comments-header"><$MTEntryCommentCount singular="1 Comment" plural="# Comments" none="No Comments"$></h2>
+                                    <div class="comments-content">
+    </MTCommentsHeader>
+    <mt:CommentID setvar="current_comment" />
+                                        <div id="comment-<$MTCommentID$>" class="comment<mt:If name="comment_new" eq="$current_comment"> comment-highlight</mt:If><mt:IfCommentParent> comment-reply</mt:IfCommentParent><mt:IfCommenterIsEntryAuthor> comment-by-author</mt:IfCommenterIsEntryAuthor>">
+                                            <div class="inner">
+                                                <div class="comment-content">
+                                                    <div class="comment-content-inner">
+                                                        <$MTCommentBody$>
+                                                    </div>
+                                                </div>
+                                                <div class="comment-header">
+                                                    <div class="asset-meta">
+                                                        <span class="byline">
+                                                            <$MTCommentAuthorIdentity$>
+<mt:IfCommentParent>
+                                                            <span class="vcard author"><$MTCommentAuthorLink$></span> replied to <a href="<mt:CommentParent><$mt:CommentLink$></mt:CommentParent>">comment from <mt:CommentParent><$MTCommentAuthor$></mt:CommentParent></a>
+<mt:else>
+                                                            <span class="vcard author"><$MTCommentAuthorLink$></span>
+</mt:IfCommentParent>
+                                                            | <a href="<$mt:CommentLink$>"><abbr class="published" title="<$MTCommentDate format_name="iso8601"$>"><$MTCommentDate$></abbr></a>
+<MTIfCommentsAccepted>
+                                                            | <$MTCommentReplyToLink$>
+</MTIfCommentsAccepted>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+    <MTCommentsFooter>
+                                    </div>
+    </MTCommentsFooter>
+</MTComments>
+                                </div>
+                                <mt:Ignore>
+                                <!-- Display commenting form if entry/page is accepting Comments -->
+                                </mt:Ignore>
+<mt:IfCommentsAccepted>
+                                <div class="comments-open" id="comments-open">
+                                    <h2 class="comments-open-header">Leave a comment</h2>
+                                    <div class="comments-open-content">
+
+                                        <mt:Ignore>
+                                        <!-- Display greeting for users if blog allows users to register locally -->
+                                        </mt:Ignore>
+                                        <div id="comment-greeting"></div>
+                                        <MTIgnore><div><br /></div></MTIgnore>
+
+                                        <form method="post" action="<$mt:CGIPath$><$mt:Commentscript$>" name="comments_form" id="comments-form" onsubmit="return mtCommentOnSubmit(this)">
+                                            <input type="hidden" name="static" value="1" />
+                                            <input type="hidden" name="entry_id" value="<$mt:EntryID$>" />
+                                            <input type="hidden" name="__lang" value="<$mt:BlogLanguage$>" />
+                                            <input type="hidden" name="parent_id" value="<$mt:CommentParentID$>" id="comment-parent-id" />
+                                            <input type="hidden" name="armor" value="1" />
+                                            <input type="hidden" name="preview" value="" />
+                                            <input type="hidden" name="sid" value="" />
+                                            <div id="comments-open-data">
+                                                <div id="comment-form-name">
+                                                    <label for="comment-author"><span class="name">Name:</span></label>
+                                                    <input id="comment-author" name="author" size="30" value="" onfocus="mtCommentFormOnFocus()" class="comment-field" />
+                                                </div>
+                                                <div id="comment-form-email">
+                                                    <label for="comment-email"><span class="email">Email:</span></label>
+                                                    <input id="comment-email" name="email" size="30" value="" onfocus="mtCommentFormOnFocus()" class="comment-field" />
+                                                    <span class="txt-email-sub">Email will not be published</span>
+                                                </div>
+                                                <div id="comment-form-url">
+                                                    <label for="comment-url"><span class="website">Website Address:</span></label>
+                                                    <input id="comment-url" name="url" size="30" value="" onfocus="mtCommentFormOnFocus()" class="comment-field" />
+                                                    <span class="txt-website-example">Website example</span>
+                                                </div>
+
+                                            </div>
+                                            <div id="comment-form-reply" style="display:none">
+                                                <input type="checkbox" id="comment-reply" name="comment_reply" value="" onclick="mtSetCommentParentID()" />
+                                                <label for="comment-reply" id="comment-reply-label"></label>
+                                            </div>
+                                            <div id="comments-open-text">
+                                                <label for="comment-text"><span class="text">Your Comment:</span></label>
+                                                <textarea id="comment-text" name="text" rows="15" cols="50" onfocus="mtCommentFormOnFocus()" class="comment-box"></textarea>
+                                            </div>
+                                            <div id="comments-open-captcha"></div>
+                                            <div id="comments-open-footer">
+                                                <input type="submit" accesskey="s" name="post" id="comment-submit" class="btnComment" value="Add Comment &raquo;" />
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                                <script type="text/javascript">
+                                <!--
+                                mtAttachEvent("load", mtEntryOnLoad);
+                                mtAttachEvent("unload", mtEntryOnUnload);
+                                //-->
+                                </script>
+</mt:IfCommentsAccepted>
+                            </div>
