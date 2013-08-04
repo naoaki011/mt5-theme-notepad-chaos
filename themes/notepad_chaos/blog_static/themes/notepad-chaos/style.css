@@ -770,3 +770,19 @@ ul.archive-list ul {
 #comments-open-footer {
 	padding:10px 0 6px 0;
 }
+
+.side-meta ul li a.uname {
+	display: inline;
+	width: auto;
+}
+
+.side-meta ul li {
+	width: 125px;
+}
+
+pre {
+	margin: 0.5em 0 0.5em 0.5em;
+	padding: 0.5em 0 0.5em 0.5em;
+	overflow: scroll;
+	background-color: #ddd;
+}

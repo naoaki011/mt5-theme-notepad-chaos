@@ -25,14 +25,14 @@
                                 <div class="asset-header">
                                     <h1 id="page-title" class="asset-name entry-title"><$MTEntryTitle escape="html"$></h1>
                                 </div>
-                                <div class="entry-meta-date"><abbr class="published" title="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate format="<span class='month'>%b</span><span class='day'>%e</span>"$></abbr></div>
+                                <div class="entry-meta-date"><abbr class="published" title="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate language="en" format="<span class='month'>%b</span><span class='day'>%e</span>"$></abbr></div>
                                 <div class="asset-content entry-content">
-<MTIf tag="EntryBody" strip_linefeeds="1" trim="1">
+<MTEntryBody strip_linefeeds="1" trim="1" setvar="bodyContent"><MTIf name="bodyContent">
                                     <div class="asset-body">
                                         <$MTEntryBody$>
                                     </div>
 </MTIf>
-<MTIf tag="EntryMore" strim_linefeeds="1" trim="1">
+<MTEntryMore strim_linefeeds="1" trim="1" setvar="moreContent"><MTIf name="moreContent">
                                     <div id="more" class="asset-more">
                                         <$MTEntryMore$>
                                     </div>

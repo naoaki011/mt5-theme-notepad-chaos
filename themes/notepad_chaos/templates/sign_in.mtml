@@ -41,14 +41,14 @@ function mtUpdateSignInWidget(u) {
         }
         var content = 'You are signed in as ';
         if (url)
-            content += '<a href="' + url + '">' + u.name + '</a>';
+            content += '<a href="' + url + '" class="uname">' + u.name + '</a>';
         else
             content += u.name;
-        content += '.  (<a href="javascript:void(0)" onclick="return mtSignOutOnClick()">sign out</a>)';
+        content += '.  (<a href="javascript:void(0)" onclick="return mtSignOutOnClick()" class="uname">sign out</a>)';
     } else if (u && u.is_banned) {
         content = 'You do not have permission to sign in to this blog.';
     } else {
-        content = '<a href="javascript:void(0)" onclick="return mtSignInOnClick(\'signin-widget-content\')">Sign In</a>';
+        content = '<a href="javascript:void(0)" onclick="return mtSignInOnClick(\'signin-widget-content\')" class="uname">Sign In</a>';
     }
     el.innerHTML = content;
 }
@@ -57,4 +57,3 @@ mtUpdateSignInWidget();
 /* ]]> */
 </script>
 </mt:IfRegistrationAllowed>
-                            
