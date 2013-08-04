@@ -14,8 +14,6 @@ http://www.notepadchaos.com/
 
 # See Other
 
-* [Trac wiki for Japanese lang.](http://code.zelazny.mydns.jp/trac/theme/wiki/Evaneckard/NotepadChaos)
-
 # License
 
 This plugin is licensed under the same terms as Perl itself.
