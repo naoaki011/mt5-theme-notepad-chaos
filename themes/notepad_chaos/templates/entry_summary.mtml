@@ -3,20 +3,21 @@
                                 <div class="asset-header">
                                     <h2 class="asset-name entry-title"><a href="<$MTEntryPermalink$>" rel="bookmark"><$MTEntryTitle escape="html"$></a></h2>
                                 </div>
+<MTDateHeader>
                                 <div class="entry-meta-date"><abbr class="published" title="<$MTEntryDate format_name="iso8601"$>"><$MTEntryDate language="en" format="<span class='month'>%b</span><span class='day'>%e</span>"$></abbr></div>
+</MTDateHeader>
 <mt:SetVarBlock name="asset_img"><mt:EntryAssets lastn="1"><img src="<$mt:AssetThumbnailURL square="1" width="140"$>" alt="<$mt:AssetLabel$>" /></mt:EntryAssets></mt:SetVarBlock>
 <mt:if name="asset_img">
                                 <div class="thumbnail"><a href="<$mt:EntryPermalink$>" title="Read More"><$mt:var name="asset_img"$></a></div>
 </mt:if>
                                 <div class="asset-content entry-content">
-<MTIf tag="EntryBody" strip_linefeeds="1" trim="1">
-    <MTEntryBody remove_html="1" count_characters="1" setvar="short_words" />
+<MTIf tag="EntryBody" strip_linefeeds="1" trim="1"><MTEntryBody remove_html="1" count_characters="1" setvar="short_words" />
                                     <div class="asset-body">
                                          <$MTEntryBody words="400"$><MTIf name="short_words" gt="400">...</MTIf>
                                     </div>
 </MTIf>
- <MTIf name="short_words" gt="400">
                                     <div class="asset-more-link">
+<MTIf name="short_words" gt="400">
                                         <div class="asset-more-link">Continue reading <a href="<$MTEntryPermalink$>" rel="bookmark"><$MTEntryTitle escape="html"$></a>.</div>
 <MTElseIf tag="EntryMore" strip_linefeeds="1" trim="1">
                                         <div class="asset-more-link">Continue reading <a href="<$MTEntryPermalink$>#more" rel="bookmark"><$MTEntryTitle escape="html"$></a>.</div>
