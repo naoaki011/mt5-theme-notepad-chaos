@@ -8,6 +8,8 @@ http://plugins.movabletype.org/notepad-chaos-a-personal-blog/
 Original Design for Wordpress by Evan Eckard (http://www.evaneckard.com/).
 http://www.notepadchaos.com/
 
+![Theme image og Notepad Chaos][id]
+
 # Prerequisites
 
 * Movable Type 5.0 or higher
@@ -17,3 +19,5 @@ http://www.notepadchaos.com/
 # License
 
 This plugin is licensed under the same terms as Perl itself.
+
+[id]: https://github.com/naoaki011/mt5-theme-notepad-chaos/blob/master/themes/notepad_chaos/NotepadChaos.png?raw=true  "Notepad Chaos"
